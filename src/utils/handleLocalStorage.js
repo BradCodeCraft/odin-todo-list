@@ -19,5 +19,7 @@ export function importTodoGroups() {
     listOfTodoGroups.push(todoGroup);
   }
 
-  return listOfTodoGroups;
+  return listOfTodoGroups.length === 0
+    ? [new TodoGroup("All")]
+    : listOfTodoGroups;
 }
