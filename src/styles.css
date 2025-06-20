@@ -1,0 +1,282 @@
+@import url("./assets/fonts/stylesheet.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --melon: #ffa69e;
+  --eggshell: #faf3dd;
+  --celeste: #b8f2f6;
+  --light-blue: #aed9e0;
+  --paynes-gray: #5e6472;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
+
+body {
+  font-family: "quicksandregular", sans-serif;
+  cursor: default;
+  background-color: var(--paynes-gray);
+  color: var(--light-blue);
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 50px 40px 1fr 30px;
+  gap: 10px;
+  min-height: 100vh;
+}
+
+.page-container header,
+.page-container footer {
+  grid-column: 1 / -1;
+  font-family: "quicksandbold", sans-serif;
+  text-align: center;
+}
+
+.page-container header {
+  font-size: 1.5rem;
+}
+
+.new-todo-form-container,
+.edit-todo-form-container,
+.add-todo-to-todo-group-form-container,
+.new-todo-group-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.new-todo-form,
+.edit-todo-form,
+.add-todo-to-todo-group-form,
+.new-todo-group-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px 40px;
+  border-radius: 15px;
+  width: 70%;
+  background-color: var(--paynes-gray);
+  color: var(--eggshell);
+  min-width: 300px;
+  max-width: 600px;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+.new-todo-form h1,
+.edit-todo-form h1,
+.add-todo-to-todo-group-form h1,
+.new-todo-group-form h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.new-todo-form label,
+.edit-todo-form label,
+.add-todo-to-todo-group-form label,
+.new-todo-group-form label {
+  font-size: 1.8rem;
+}
+
+.new-todo-form input,
+.edit-todo-form input,
+.new-todo-group-form input,
+.new-todo-form textarea,
+.edit-todo-form textarea {
+  font-size: 1.4rem;
+  padding: 4px;
+  color: var(--paynes-gray);
+}
+
+.add-todo-to-todo-group-form select {
+  font-size: 1.4rem;
+  padding: 4px;
+  color: var(--paynes-gray);
+}
+
+.new-todo-form textarea,
+.edit-todo-form textarea {
+  resize: none;
+}
+
+.form-buttons-container {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.new-todo-form button,
+.edit-todo-form button,
+.add-todo-to-todo-group-form button,
+.new-todo-group-form button {
+  flex: 1;
+  appearance: none;
+  margin-top: 10px;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  background-color: var(--eggshell);
+  color: var(--paynes-gray);
+}
+
+.new-todo-form button[type="reset"],
+.edit-todo-form button[type="reset"],
+.add-todo-to-todo-group-form button[type="reset"],
+.new-todo-group-form button[type="reset"] {
+  background-color: var(--melon);
+}
+
+.new-todo-form button:hover,
+.edit-todo-form button:hover,
+.add-todo-to-todo-group-form button:hover,
+.new-todo-group-form button:hover {
+  scale: 1.12;
+}
+
+.new-todo-form button:active,
+.edit-todo-form button:active,
+.add-todo-to-todo-group-form button:active,
+.new-todo-group-form button:active {
+  scale: 1;
+}
+
+.create-new-buttons-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.create-new-buttons-container button {
+  appearance: none;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.4rem;
+  background-color: var(--celeste);
+  color: var(--paynes-gray);
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+.create-new-buttons-container button:hover {
+  background-color: var(--melon);
+}
+
+.create-new-buttons-container button:active {
+  scale: 0.9;
+}
+
+.todo-groups-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0px 5px;
+}
+
+.todo-groups-container button {
+  appearance: none;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--celeste);
+  padding: 4px 10px;
+  transition: all 150ms ease-in-out;
+  color: var(--paynes-gray);
+  cursor: pointer;
+}
+
+.todo-groups-container button:hover {
+  background-color: var(--melon);
+}
+
+.todo-groups-container button:active {
+  scale: 0.9;
+}
+
+.todos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.todo-card-container {
+  background-color: var(--light-blue);
+  color: var(--paynes-gray);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.todo-card-buttons-container {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  max-width: 300px;
+  gap: 10px;
+}
+
+.todo-card-information-container:hover {
+  cursor: pointer;
+  text-decoration: line-through;
+}
+
+.todo-card-buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-card-buttons-container button {
+  width: 100%;
+  appearance: none;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 8px;
+  font-size: inherit;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+.todo-card-buttons-container button:hover {
+  scale: 1.08;
+}
+
+.todo-card-buttons-container button:active {
+  scale: 1;
+}
+
+.delete-button {
+  background-color: var(--melon);
+}
+
+.edit-button,
+.add-button {
+  background-color: var(--eggshell);
+}
+
+@media screen and (min-width: 700px) {
+  .todo-card-buttons-container {
+    flex-direction: row;
+  }
+}
